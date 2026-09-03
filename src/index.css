@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+.dyslexia-mode {
+  letter-spacing: 0.05em;
+  word-spacing: 0.15em;
+  line-height: 1.8 !important;
+}
+
+.dyslexia-mode p, 
+.dyslexia-mode span, 
+.dyslexia-mode button, 
+.dyslexia-mode h1, 
+.dyslexia-mode h2, 
+.dyslexia-mode h3, 
+.dyslexia-mode h4 {
+  letter-spacing: 0.04em !important;
+}
+
+/* Accessible focus ring for keyboard navigation */
+:focus-visible {
+  outline: 3px solid #6366f1 !important;
+  outline-offset: 2px !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Professional Print Styles for Official Certificates & Seals */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #main-app-header,
+  #app-global-footer,
+  #dua-floating-bar,
+  #reading-guide-ruler-overlay,
+  #visual-sound-caption-toast,
+  .no-print {
+    display: none !important;
+  }
+
+  .certificate-print-area,
+  .seal-print-area {
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+    width: 100% !important;
+  }
+
+  .certificate-print-area {
+    border: 3px double #b45309 !important;
+    background: #fffdf9 !important;
+    color: #0f172a !important;
+  }
+
+  .seal-print-area {
+    border: 2px solid #e2e8f0 !important;
+    background: #0f172a !important;
+    color: #ffffff !important;
+    padding: 24px !important;
+    border-radius: 24px !important;
+  }
+}
